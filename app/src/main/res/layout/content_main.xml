@@ -14,27 +14,52 @@
     tools:context="org.csoh.usb.MainActivity">
 
     <TextView
-        android:text="Message!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView" />
+        android:text="@string/hostMessage"
+        android:id="@+id/labelHostMessage"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/labelMessageToHost"
+        android:layout_alignEnd="@+id/labelMessageToHost" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:layout_below="@+id/textView"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/textboxHostMessage"
+        android:maxLines="5"
+        android:fadeScrollbars="false"
+        android:scrollbars="vertical"
+        android:scrollIndicators="right" />
+
+    <TextView
+        android:text="Message To Host"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/labelMessageToHost"
+        android:layout_marginTop="140dp"
+        android:layout_below="@+id/textboxHostMessage"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="82dp"
-        android:minWidth="200dp" />
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textboxMessageToHost"
+        android:minWidth="200dp"
+        android:layout_below="@+id/labelMessageToHost"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Send"
         android:id="@+id/button"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/textboxMessageToHost"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:onClick="sendMessage" />
