@@ -150,50 +150,13 @@ public class MainActivity extends AppCompatActivity implements Runnable {
             Log.d(logName, "Error makeInputStream() returned null");
             return;
         }
-   /*     UsbManager mUsbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
-        UsbAccessory accessory = (UsbAccessory) getIntent().getParcelableExtra(UsbManager.EXTRA_ACCESSORY);
-        Log.d("MainAct", "openAccessory: " + accessory);
-        if(accessory == null){
-            Log.d("MainAct", "Unable to read message from accessory because it is null");
-            return;
-        }
-        mFileDescriptor = mUsbManager.openAccessory(accessory);
-        Toast.makeText(MainActivity.this, "After openAccessory=" + mFileDescriptor, Toast.LENGTH_SHORT).show();
-        if (mFileDescriptor != null) {
-            FileDescriptor fd = mFileDescriptor.getFileDescriptor();
-            mInputStream = new FileInputStream(fd);
-            Thread thread = new Thread(null, this, "AccessoryThread");
-            Toast.makeText(MainActivity.this, "Starting thread" + mFileDescriptor, Toast.LENGTH_SHORT).show();
-            thread.start();
-        }
-        */
+
     }
     @Override
     public void run() {
         Log.d(logName, "Before read");
         readMessageFromAccessory();
         Log.d(logName,"After read");
-        /*int loop = 0;
-        Log.d("MainAct", ">>> in run()");
-        while(loop++ < 20) {
-            Log.d("MainAct",">>> Loop " + loop);
-            try {
-                Thread.sleep(1000);
-                try {
-                    byte[] buffer = new byte[32];
-                    mInputStream.read(buffer);
-                    Log.d("MainAct",">>> " + new String(buffer));
-                    //mOutputStream.write("abcdef".getBytes());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-        }
-        */
     }
 
 }
